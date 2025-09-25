@@ -1,0 +1,22 @@
+
+{
+  "name": "Phishing Detector",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "host_permissions": ["https://mail.google.com/*", "http://127.0.0.1:5000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Phishing Detector"
+  }
+}
+
